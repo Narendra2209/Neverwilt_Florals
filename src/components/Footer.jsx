@@ -42,8 +42,8 @@ export default function Footer() {
                             </a>
                         </div>
                         <p className="text-sm text-gray-600">
-                            Email: hello@neverwilt.com <br />
-                            Phone: +91 98765 43210
+                            Email: neverwiltflorals@gmail.com <br />
+                            Phone: +91 63630 73675
                         </p>
                     </div>
                 </div>

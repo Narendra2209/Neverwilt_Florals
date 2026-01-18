@@ -20,7 +20,7 @@ export default function Cart() {
         message += `\n------------------\nPlease Provide:\n\nCustomer Name:\nDelivery Date:\nDelivery Address:`;
 
         // Phone number from config/constants
-        const phoneNumber = "919876543210";
+        const phoneNumber = "916363073675";
         const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         window.open(url, '_blank');
     };

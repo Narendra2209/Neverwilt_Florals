@@ -34,7 +34,7 @@ export const initialProducts = [
     {
         id: 5,
         name: "Pink Lily Bouquet",
-        price: 499,
+        price: 999,
         category: "",
         image: "/images/pink-lilies.png",
         description: "A stunning bouquet of pink handcrafted lilies, perfect for gifting."
@@ -166,5 +166,29 @@ export const initialProducts = [
         category: "",
         image: "/images/diamond-floral-hanging.jpg",
         description: "Vibrant multicolored flowers arranged on a handcrafted jute diamond frame."
+    },
+    {
+        id: 22,
+        name: "Sunflower Keychain",
+        price: 79,
+        category: "",
+        image: "/images/sunflower-keychain.jpg",
+        description: "A bright and cheery handcrafted sunflower keychain to brighten your day."
+    },
+    {
+        id: 23,
+        name: "Daisy Keychain",
+        price: 79,
+        category: "",
+        image: "/images/daisy-keychain.jpg",
+        description: "A cute and simple handcrafted white daisy keychain with green leaves."
+    },
+    {
+        id: 24,
+        name: "Red Rose Keychain",
+        price: 79,
+        category: "",
+        image: "/images/rose-keychain.jpg",
+        description: "An elegant miniature red rose keychain, handcrafted with soft velvety texture."
     }
 ];
