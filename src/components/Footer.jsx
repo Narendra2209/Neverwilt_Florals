@@ -23,7 +23,22 @@ export default function Footer() {
                             <li><a href="#" className="hover:text-brand-pink transition-colors">About Us</a></li>
                             <li><a href="#" className="hover:text-brand-pink transition-colors">Delivery Info</a></li>
                             <li><a href="#" className="hover:text-brand-pink transition-colors">Terms & Conditions</a></li>
-                            <li><a href="/admin" className="hover:text-brand-pink transition-colors">Admin Login</a></li>
+                            <li>
+                                <button
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        const pin = prompt("Enter Admin PIN:");
+                                        if (pin === "48807") {
+                                            window.location.href = "/admin";
+                                        } else if (pin !== null) {
+                                            alert("Incorrect PIN");
+                                        }
+                                    }}
+                                    className="hover:text-brand-pink transition-colors text-left"
+                                >
+                                    Admin Login
+                                </button>
+                            </li>
                         </ul>
                     </div>
 
@@ -31,7 +46,7 @@ export default function Footer() {
                     <div className="space-y-4">
                         <h4 className="font-serif font-semibold text-brand-dark">Connect With Us</h4>
                         <div className="flex space-x-4">
-                            <a href="#" className="text-gray-500 hover:text-brand-pink transition-colors">
+                            <a href="https://www.instagram.com/neverwilt_florals/?hl=en" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-brand-pink transition-colors">
                                 <Instagram className="h-5 w-5" />
                             </a>
                             <a href="#" className="text-gray-500 hover:text-brand-pink transition-colors">

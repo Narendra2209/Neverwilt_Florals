@@ -22,7 +22,8 @@ export default function Navbar() {
 
                     {/* Logo */}
                     <Link to="/" className="flex items-center space-x-2">
-                        <Flower className="h-8 w-8 text-brand-pink" strokeWidth={1.5} />
+                        {/* <Flower className="h-8 w-8 text-brand-pink" strokeWidth={1.5} /> */}
+                        <img src="/images/logo.png" alt="Neverwilt Logo" className="h-12 w-12 object-contain" />
                         <div className="flex flex-col">
                             <span className="font-serif text-2xl font-bold text-brand-dark tracking-wide">
                                 Neverwilt Florals
@@ -47,6 +48,8 @@ export default function Navbar() {
                                 {link.name}
                             </NavLink>
                         ))}
+
+
 
                         <Link to="/cart" className="relative p-2 hover:bg-gray-100 rounded-full transition-colors">
                             <ShoppingBag className="h-6 w-6 text-gray-700" strokeWidth={1.5} />
@@ -95,13 +98,7 @@ export default function Navbar() {
                                 {link.name}
                             </NavLink>
                         ))}
-                        <Link
-                            to="/admin"
-                            onClick={() => setIsOpen(false)}
-                            className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:bg-gray-50"
-                        >
-                            Admin Panel
-                        </Link>
+
                     </div>
                 </div>
             )}
