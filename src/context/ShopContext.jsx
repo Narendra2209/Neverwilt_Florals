@@ -8,23 +8,23 @@ export const ShopProvider = ({ children }) => {
     // but useEffect is safer for hydration matching in some frameworks.
     // Since this is Vite SPA, immediate read is fine.
     const [products, setProducts] = useState(() => {
-        const stored = localStorage.getItem('neverwilt_products_v9');
+        const stored = localStorage.getItem('neverwilt_products_v10');
         return stored ? JSON.parse(stored) : initialProducts;
     });
 
     const [cart, setCart] = useState(() => {
-        const stored = localStorage.getItem('neverwilt_cart_v9');
+        const stored = localStorage.getItem('neverwilt_cart_v10');
         return stored ? JSON.parse(stored) : [];
     });
 
     // Persist Products
     useEffect(() => {
-        localStorage.setItem('neverwilt_products_v9', JSON.stringify(products));
+        localStorage.setItem('neverwilt_products_v10', JSON.stringify(products));
     }, [products]);
 
     // Persist Cart
     useEffect(() => {
-        localStorage.setItem('neverwilt_cart_v9', JSON.stringify(cart));
+        localStorage.setItem('neverwilt_cart_v10', JSON.stringify(cart));
     }, [cart]);
 
     const addToCart = (product, quantity = 1) => {

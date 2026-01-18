@@ -138,7 +138,7 @@ export const initialProducts = [
     {
         id: 18,
         name: "Tiny Sunflower Pot",
-        price: 199,
+        price: 149,
         category: "",
         image: "/images/tiny-sunflower-pot.jpg",
         description: "A miniature burst of sunshine for your desk or shelf."
