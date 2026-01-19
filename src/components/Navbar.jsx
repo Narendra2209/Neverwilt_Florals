@@ -22,18 +22,28 @@ export default function Navbar() {
         // { name: 'Admin', path: '/admin' }, // Hidden for aesthetics, accessible via url
     ];
 
+    const marqueeContent = (
+        <>
+            <span className="mx-4 text-xs font-medium tracking-widest uppercase">{message}</span>
+            <span className="mx-4 text-xs font-medium tracking-widest uppercase">•</span>
+            <span className="mx-4 text-xs font-medium tracking-widest uppercase">{message}</span>
+            <span className="mx-4 text-xs font-medium tracking-widest uppercase">•</span>
+            <span className="mx-4 text-xs font-medium tracking-widest uppercase">{message}</span>
+            <span className="mx-4 text-xs font-medium tracking-widest uppercase">•</span>
+            <span className="mx-4 text-xs font-medium tracking-widest uppercase">{message}</span>
+            <span className="mx-4 text-xs font-medium tracking-widest uppercase">•</span>
+        </>
+    );
+
     return (
         <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-brand-cream">
             {/* Announcement Bar */}
-            <div className="bg-brand-dark text-brand-beige py-2.5 overflow-hidden">
-                <div className="animate-marquee whitespace-nowrap inline-block">
-                    <span className="mx-4 text-xs font-medium tracking-widest uppercase">{message}</span>
-                    <span className="mx-4 text-xs font-medium tracking-widest uppercase">•</span>
-                    <span className="mx-4 text-xs font-medium tracking-widest uppercase">{message}</span>
-                    <span className="mx-4 text-xs font-medium tracking-widest uppercase">•</span>
-                    <span className="mx-4 text-xs font-medium tracking-widest uppercase">{message}</span>
-                    <span className="mx-4 text-xs font-medium tracking-widest uppercase">•</span>
-                    <span className="mx-4 text-xs font-medium tracking-widest uppercase">{message}</span>
+            <div className="bg-brand-dark text-brand-beige py-2.5 overflow-hidden flex">
+                <div className="animate-marquee whitespace-nowrap flex-shrink-0 flex items-center">
+                    {marqueeContent}
+                </div>
+                <div className="animate-marquee whitespace-nowrap flex-shrink-0 flex items-center" aria-hidden="true">
+                    {marqueeContent}
                 </div>
             </div>
 
