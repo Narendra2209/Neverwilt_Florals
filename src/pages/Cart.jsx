@@ -4,11 +4,18 @@ import { Trash2, Plus, Minus, MessageCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Cart() {
-    const { cart, removeFromCart, updateQuantity, getCartTotal } = useShop();
+    const { cart, removeFromCart, updateQuantity, getCartTotal, getDeliveryFee } = useShop();
     const total = getCartTotal();
+    const deliveryFee = getDeliveryFee();
+    const finalTotal = total + deliveryFee;
 
     const handleWhatsAppCheckout = () => {
         if (cart.length === 0) return;
+
+        // Recalculate values directly to ensure freshness
+        const currentTotal = getCartTotal();
+        const currentFee = getDeliveryFee();
+        const currentFinalTotal = currentTotal + currentFee;
 
         let message = "Hello Neverwilt Florals 🌸\n\nI would like to place an order:\n\n";
 
@@ -16,7 +23,9 @@ export default function Cart() {
             message += `▫️ ${item.name} \n   Qty: ${item.quantity} | Cost: ₹${item.price * item.quantity}\n`;
         });
 
-        message += `\n*Total Amount: ₹${total}*\n`;
+        message += `\nSubtotal: ₹${currentTotal}\n`;
+        message += `Delivery Charges: ${currentFee === 0 ? 'Free' : '₹' + currentFee}\n`;
+        message += `*Total Amount: ₹${currentFinalTotal}*\n`;
         message += `\n------------------\nPlease Provide:\n\nCustomer Name:\nDelivery Date:\nDelivery Address:`;
 
         // Phone number from config/constants
@@ -111,13 +120,15 @@ export default function Cart() {
                             </div>
                             <div className="flex justify-between">
                                 <span>Delivery</span>
-                                <span className="text-brand-pink font-medium">To be discussed</span>
+                                <span className={deliveryFee === 0 ? "text-green-600 font-medium" : "text-brand-pink font-medium"}>
+                                    {deliveryFee === 0 ? "Free" : `₹${deliveryFee}`}
+                                </span>
                             </div>
                         </div>
 
                         <div className="border-t border-gray-200 pt-4 flex justify-between items-center text-lg font-bold text-brand-dark">
                             <span>Total</span>
-                            <span>₹{total}</span>
+                            <span>₹{finalTotal}</span>
                         </div>
 
                         <div className="pt-4">

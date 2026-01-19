@@ -81,6 +81,10 @@ export const ShopProvider = ({ children }) => {
             updateQuantity,
             clearCart,
             getCartTotal,
+            getDeliveryFee: () => {
+                const total = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+                return total === 0 ? 0 : (total >= 500 ? 0 : 100);
+            },
             addProduct,
             deleteProduct
         }}>

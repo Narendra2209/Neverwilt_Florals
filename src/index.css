@@ -14,6 +14,16 @@
 
   --animate-fade-in: fade-in 0.5s ease-out forwards;
   --animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
+  --animate-marquee: marquee 25s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 @keyframes fade-in {

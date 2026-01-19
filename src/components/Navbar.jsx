@@ -4,10 +4,17 @@ import { ShoppingBag, Menu, X, Flower } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
 
 export default function Navbar() {
-    const { cart } = useShop();
+    const { cart, getCartTotal } = useShop();
     const [isOpen, setIsOpen] = useState(false);
 
     const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+    const total = getCartTotal();
+    const remaining = 500 - total;
+    const isFreeDelivery = total >= 500;
+
+    const message = isFreeDelivery
+        ? "🎉 FREE Delivery on orders above ₹500! No delivery charges applied."
+        : `🚚 Delivery charges ₹100 applied. Add products worth ₹${remaining} to unlock FREE Delivery!`;
 
     const navLinks = [
         { name: 'Home', path: '/' },
@@ -17,6 +24,19 @@ export default function Navbar() {
 
     return (
         <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-brand-cream">
+            {/* Announcement Bar */}
+            <div className="bg-brand-dark text-brand-beige py-2.5 overflow-hidden">
+                <div className="animate-marquee whitespace-nowrap inline-block">
+                    <span className="mx-4 text-xs font-medium tracking-widest uppercase">{message}</span>
+                    <span className="mx-4 text-xs font-medium tracking-widest uppercase">•</span>
+                    <span className="mx-4 text-xs font-medium tracking-widest uppercase">{message}</span>
+                    <span className="mx-4 text-xs font-medium tracking-widest uppercase">•</span>
+                    <span className="mx-4 text-xs font-medium tracking-widest uppercase">{message}</span>
+                    <span className="mx-4 text-xs font-medium tracking-widest uppercase">•</span>
+                    <span className="mx-4 text-xs font-medium tracking-widest uppercase">{message}</span>
+                </div>
+            </div>
+
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-20">
 
